@@ -7,11 +7,12 @@ TagManager:
   - CinemachineTarget
   - Door
   - Button
+  - PushableObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PushableObject
   - Water
   - UI
   - 

@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Button
   - PushableObject
+  - Skull
   layers:
   - Default
   - TransparentFX

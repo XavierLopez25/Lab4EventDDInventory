@@ -23,6 +23,19 @@ public class PlayerRaycastInteractor : MonoBehaviour
                         .GetComponent<ButtonInteractable>()
                         ?.PressButton();
                 }
+
+                if (hit.collider.CompareTag("Skull"))
+                {
+                    SkullToggle skull = hit.collider.GetComponentInParent<SkullToggle>();
+
+                    if (skull != null)
+                    {
+                        skull.Toggle();
+                        skull.Highlight(true);
+                    }
+                }
+
+
             }
         }
     }

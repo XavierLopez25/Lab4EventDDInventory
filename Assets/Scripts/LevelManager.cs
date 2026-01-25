@@ -12,6 +12,11 @@ public class LevelManager : MonoBehaviour
     private bool[] buttons = new bool[3];
     [SerializeField] private Door buttonDoor;
 
+    [Header("Skull Puzzle")]
+    [SerializeField] private Door skullDoor;
+
+    private bool[] skullStates = new bool[5];
+    private bool[] correctCombination = new bool[5] { true, true, true, true, true };
     void Update()
     {
         // Solo para debug
@@ -29,6 +34,28 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+
+    public void CheckSkullCombination() {
+        for (int i = 0; i < correctCombination.Length; i++) {
+            if (skullStates[i] != correctCombination[i])
+                return;
+
+            Debug.Log(
+                $"Skulls: {skullStates[0]}, {skullStates[1]}, {skullStates[2]}, {skullStates[3]}, {skullStates[4]}"
+            );
+        }
+
+        
+
+
+        Debug.Log("Correct skull combination");
+        skullDoor.OpenDoor();
+    }
+
+    public void SkullToggled(int index, bool isOpen) { 
+        skullStates[index] = isOpen;
+        CheckSkullCombination();
+    }
     public void ButtonPressed(int id) {
         if (id < 0 || id >= buttons.Length)
             return;

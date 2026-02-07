@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,8 +16,25 @@ public class LevelManager : MonoBehaviour
     [Header("Skull Puzzle")]
     [SerializeField] private Door skullDoor;
 
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI coinText;
+
     private bool[] skullStates = new bool[5];
     private bool[] correctCombination = new bool[5] { true, true, true, true, true };
+
+    private void UpdateCoinUI() 
+    {
+        if (coinText != null)
+        {
+            coinText.text = $"Coins: {score} / {requiredCoins}";
+        }
+    }
+
+    void Start() 
+    {
+        UpdateCoinUI();
+    }
+    
     void Update()
     {
         // Solo para debug
@@ -26,6 +44,8 @@ public class LevelManager : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
+
+        UpdateCoinUI();
 
         if (score >= requiredCoins)
         {

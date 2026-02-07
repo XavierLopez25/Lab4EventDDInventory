@@ -13,6 +13,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private MonoBehaviour playerRaycastInteractor;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource uiAudioSource;
+    [SerializeField] private AudioClip pauseOpenSound;
+
+
     private bool isPaused = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,6 +60,8 @@ public class PauseMenu : MonoBehaviour
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+
+        uiAudioSource.PlayOneShot(pauseOpenSound);
 
         thirdPersonController.enabled = false;
         starterInputs.enabled = false;

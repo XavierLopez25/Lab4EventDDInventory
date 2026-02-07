@@ -3,6 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private LevelManager levelManager;
+    [SerializeField] private AudioClip collectSound;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(collectSound, transform.position);
             levelManager.IncreaseScore();
             Destroy(gameObject);
         }

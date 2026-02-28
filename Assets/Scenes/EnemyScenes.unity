@@ -1210,6 +1210,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 25809448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &648654900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 698207152f054144db9bb475e86eead1, type: 3}
+  m_PrefabInstance: {fileID: 1230162260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &648654903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648654900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a8343995ef3d0468467716f85b5161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieGuard
+  guardRange: 25
+  attackRange: 2.5
+  attackCooldown: 2.5
+--- !u!195 &648654904
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648654900}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: -0.15
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &678612056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,10 +2097,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZombieGuard
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 698207152f054144db9bb475e86eead1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ba8cd3c156c55264f9cf1170cd8a3333, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 698207152f054144db9bb475e86eead1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648654904}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 698207152f054144db9bb475e86eead1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 648654903}
   m_SourcePrefab: {fileID: 100100000, guid: 698207152f054144db9bb475e86eead1, type: 3}
 --- !u!1 &1240230254
 GameObject:
@@ -2351,7 +2403,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3c2c4a1fc27776a4289b079763478fab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.153
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3c2c4a1fc27776a4289b079763478fab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2359,7 +2411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3c2c4a1fc27776a4289b079763478fab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.33519
+      value: -20.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3c2c4a1fc27776a4289b079763478fab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2479,6 +2531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ZombieChaser
   chaseRange: 10
   attackRange: 2
+  attackCooldown: 2
 --- !u!1 &1509172052
 GameObject:
   m_ObjectHideFlags: 0

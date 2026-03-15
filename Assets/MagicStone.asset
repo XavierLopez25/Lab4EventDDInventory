@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0844c185e367ba3419b4797631bf2a4a, type: 3}
   m_Name: MagicStone
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Magic Stone
+  icon: {fileID: 21300000, guid: e4f80d2713ce65b4b91870d2f7f1bec7, type: 3}

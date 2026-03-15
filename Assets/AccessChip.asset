@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0844c185e367ba3419b4797631bf2a4a, type: 3}
   m_Name: AccessChip
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Access Chip
+  icon: {fileID: 21300000, guid: 44af1bf9346136d4e98ec53a9cab25e5, type: 3}

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0844c185e367ba3419b4797631bf2a4a, type: 3}
   m_Name: AncientRelic
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Ancient Relic
+  icon: {fileID: 21300000, guid: dcfe03fef6f18604bb84eb724a7dd966, type: 3}

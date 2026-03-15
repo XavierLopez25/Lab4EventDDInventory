@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0844c185e367ba3419b4797631bf2a4a, type: 3}
   m_Name: KeyCard
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Key Card
+  icon: {fileID: 21300000, guid: 983783695dbcbd24795ece17013e970d, type: 3}

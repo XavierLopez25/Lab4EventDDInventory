@@ -98,6 +98,10 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+        [Header("Player Stats")]
+        [SerializeField] public int maxJumps = 2;
+        private int jumpsRemaining;
+
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
@@ -150,6 +154,7 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+            jumpsRemaining = maxJumps;
         }
 
         private void Update()
@@ -286,6 +291,9 @@ namespace StarterAssets
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
 
+                // reset available jumps
+                jumpsRemaining = maxJumps;
+
                 // update animator if using character
                 if (_hasAnimator)
                 {
@@ -297,19 +305,6 @@ namespace StarterAssets
                 if (_verticalVelocity < 0.0f)
                 {
                     _verticalVelocity = -2f;
-                }
-
-                // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
-                {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    // update animator if using character
-                    if (_hasAnimator)
-                    {
-                        _animator.SetBool(_animIDJump, true);
-                    }
                 }
 
                 // jump timeout
@@ -330,18 +325,30 @@ namespace StarterAssets
                 }
                 else
                 {
-                    // update animator if using character
                     if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDFreeFall, true);
                     }
                 }
+            }
 
-                // if we are not grounded, do not jump
+            // DOUBLE JUMP LOGIC
+            if (_input.jump && jumpsRemaining > 0)
+            {
+                _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                jumpsRemaining--;
+
+                if (_hasAnimator)
+                {
+                    _animator.SetBool(_animIDJump, true);
+                }
+
+                // prevent jump being triggered every frame
                 _input.jump = false;
             }
 
-            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+            // apply gravity
             if (_verticalVelocity < _terminalVelocity)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;

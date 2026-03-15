@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Access Chip
   icon: {fileID: 21300000, guid: 44af1bf9346136d4e98ec53a9cab25e5, type: 3}
+  type: 3

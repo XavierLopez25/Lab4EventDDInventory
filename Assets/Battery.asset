@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Battery
   icon: {fileID: 21300000, guid: 5b6a653c32a0b084f84ed27c187199ed, type: 3}
+  type: 1

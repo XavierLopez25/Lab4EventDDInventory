@@ -29,11 +29,11 @@ public class ItemEffectManager : MonoBehaviour
                 break;
 
             case ItemType.Battery:
-                player.ModifySpeed(2f, 10f); // +velocidad 10s
+                player.ModifySpeed(2f, 50f); // +velocidad 10s
                 break;
 
             case ItemType.AncientRelic:
-                player.ModifySpeed(0.5f, 8f); // lento 8s
+                player.ModifySpeed(0.5f, 50f); // lento 8s
                 break;
 
             case ItemType.AccessChip:
